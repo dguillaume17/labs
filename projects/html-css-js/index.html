@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Labs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <form id="main-form">
+            <div class="input-container">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="input-first-name">
+                <span name="viewer-first-name"></span>
+            </div>
+            <div class="input-container">
+                <label for="input-size">Size:</label>
+                <input type="range" min="20" max="80" id="input-size" name="input-size">
+                <span name="viewer-size"></span>
+            </div>
+            <div class="input-container">
+                <label for="preferences">Preference(s):</label>
+                <input type="checkbox" id="preferences1" name="preferences1">
+                <input type="checkbox" id="preferences2" name="preferences2">
+            </div>
+            <div class="input-container">
+                <label for="preferences">Sex:</label>
+                <input type="radio" id="sex" name="input-sex" value="M" checked>
+                <input type="radio" id="sex" name="input-sex" value="F">
+            </div>
+            <div class="input-container">
+                <button type="button" name="btn-default">Set default values</button>
+                <button type="button" name="btn-cancel">Cancel</button>
+                <button type="submit">Send form</button>
+            </div>
+        </form>
+    </body>
+</html>
