@@ -6,9 +6,9 @@
         <title>Labs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    </head>
+    <script defer src="/main.bundle.js"></script></head>
     <body>
+        <script scr="main.js"></script>
         <form id="main-form">
             <div class="input-container">
                 <label for="first-name">First Name:</label>
@@ -36,5 +36,9 @@
                 <button type="submit">Send form</button>
             </div>
         </form>
+        
+        <template id="hello-world-template">
+            <slot name="test"></slot>
+        </template>
     </body>
 </html>

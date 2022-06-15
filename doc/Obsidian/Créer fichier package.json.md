@@ -1,6 +1,16 @@
+Avec prompt
+
 ```bash
 npm init
 ```
+
+Sans prompt
+
+
+```bash
+npm init -y
+```
+
 
 ```json
 {
