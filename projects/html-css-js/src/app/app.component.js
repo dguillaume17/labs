@@ -1,4 +1,3 @@
-import { html } from './utils'
 
 export class AppComponent extends HTMLElement {
 
@@ -15,7 +14,7 @@ export class AppComponent extends HTMLElement {
     // Render
 
     render() {
-        this._shadow.innerHTML = html`
+        this._shadow.innerHTML = /*html*/`
             <form id="main-form">
                 <div class="input-container">
                     <label for="first-name">First Name:</label>

@@ -26,5 +26,20 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, '/src/index.html')
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css/,
+                type: 'asset/source'
+            },
+            {
+                test: /\.html/,
+                type: 'asset/source',
+                exclude: [
+                    /index.html/
+                ],
+            }
+        ]
+    },
 };

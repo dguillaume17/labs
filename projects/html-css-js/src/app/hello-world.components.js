@@ -1,4 +1,5 @@
-import { html } from './utils'
+import html from './hello-world.component.html';
+import css from './hello-world.component.css';
 
 export class HelloWorldComponent extends HTMLElement {
 
@@ -15,14 +16,10 @@ export class HelloWorldComponent extends HTMLElement {
     // Render
 
     render() {
-        this._shadow.innerHTML = html`
-            <div>
-                coucou ok
-            </div>
+        this._shadow.innerHTML = /*html*/`
+            ${html}
             <style>
-                div {
-                    background-color: red;
-                }
+                ${css}
             </style>
         `
     }
