@@ -1,12 +1,24 @@
+interface Elements<T> {
+    [key: string]: T | undefined | null;
+}
 
 export class AppComponent extends HTMLElement {
+
+    private _form: HTMLFormElement | undefined | null;
+    private _buttons: Elements<HTMLButtonElement> | undefined;
+    private _inputs: Elements<HTMLInputElement> | undefined;
+    private _viewers: Elements<HTMLDivElement> | undefined;
+
+    // Private properties
+
+    private _shadow: ShadowRoot | undefined;
 
     // Lifecycle
 
     connectedCallback() {
         this._shadow = this.attachShadow({
             mode: 'closed'
-        })
+        });
 
         this.render()
     }
@@ -14,7 +26,7 @@ export class AppComponent extends HTMLElement {
     // Render
 
     render() {
-        this._shadow.innerHTML = /*html*/`
+        this._shadow!.innerHTML = /*html*/`
             <form id="main-form">
                 <div class="input-container">
                     <label for="first-name">First Name:</label>
@@ -62,26 +74,26 @@ export class AppComponent extends HTMLElement {
 
     _setupButtonTemplateRefs() {
         this._buttons = {
-            default: this._shadow.querySelector('[name="btn-default"]'),
-            cancel: this._shadow.querySelector('[name="btn-cancel"]')
+            default: this._shadow?.querySelector('[name="btn-default"]'),
+            cancel: this._shadow?.querySelector('[name="btn-cancel"]')
         }
     }
 
     _setupFormTemplateRefs() {
-        this._form = this._shadow.querySelector('#main-form')
+        this._form = this._shadow?.querySelector('#main-form')
     }
 
     _setupInputsTemplateRefs() {
         this._inputs = {
-            firstName: this._shadow.querySelector('[name="input-first-name"'),
-            size: this._shadow.querySelector('[name="input-size"'),
+            firstName: this._shadow?.querySelector('[name="input-first-name"'),
+            size: this._shadow?.querySelector('[name="input-size"'),
         }
     }
 
     _setupViewerTemplateRefs() {
         this._viewers = {
-            firstName: this._shadow.querySelector('[name="viewer-first-name"]'),
-            size: this._shadow.querySelector('[name="viewer-size"]')
+            firstName: this._shadow?.querySelector('[name="viewer-first-name"]'),
+            size: this._shadow?.querySelector('[name="viewer-size"]')
         }
     }
 
@@ -95,33 +107,33 @@ export class AppComponent extends HTMLElement {
     }
 
     _setupFirstNameListener() {
-        this._inputs.firstName.addEventListener('input', event => {
-            const newValue = event.target.value
-            this._viewers.firstName.innerHTML = newValue
+        this._inputs?.firstName?.addEventListener('input', event => {
+            const newValue = (event as any).target.value
+            this._viewers!.firstName!.innerHTML = newValue
         })
 
-        this._inputs.firstName.addEventListener('change', event => {
-            this._viewers.firstName.innerHTML = ''
+        this._inputs?.firstName?.addEventListener('change', event => {
+            this._viewers!.firstName!.innerHTML = ''
         })
     }
 
     _setupSizeListener() {
-        this._inputs.size.addEventListener('change', event => {
-            const newValue = event.target.value
-            this._viewers.size.innerHTML = newValue
+        this._inputs?.size?.addEventListener('change', event => {
+            const newValue = (event as any).target.value
+            this._viewers!.size!.innerHTML = newValue
         })
     }
 
     _setupDefaultButton() {
-        this._buttons.default.addEventListener('click', event => {
-            this._inputs.firstName.value = 'John';
-            this._inputs.size.value = 50;
+        this._buttons?.default?.addEventListener('click', event => {
+            this._inputs!.firstName!.value = 'John';
+            this._inputs!.size!.value = String(50);
         }) 
     }
 
     _setupCancelButton() {
-        this._buttons.cancel.addEventListener('click', event => {
-            this._form.reset();
+        this._buttons?.cancel?.addEventListener('click', event => {
+            this._form?.reset();
         })
     }
 

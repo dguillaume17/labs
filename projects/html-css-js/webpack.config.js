@@ -3,17 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: path.join(__dirname, '/src/main.js'),
+    entry: path.join(__dirname, 'src/main.ts'),
+    devtool: 'source-map',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, '/dist'),
+        path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, '/src'),
+            directory: path.join(__dirname, 'src'),
         },
         watchFiles: [
-            path.join(__dirname, '/src/*.html')
+            path.join(__dirname, 'src/*.html')
         ],
         compress: true,
         port: 9000,
@@ -24,11 +25,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '/src/index.html')
+            template: path.join(__dirname, 'src/index.html')
         })
     ],
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css/,
                 type: 'asset/source'
@@ -41,5 +47,8 @@ module.exports = {
                 ],
             }
         ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
 };
