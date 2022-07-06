@@ -1,0 +1,61 @@
+<div class="dropdown">
+    <div>coucou</div>
+    <div class="dropdown-item-container active">
+        <ul class="dropdown-items">
+            <li class="dropdown-item">Item 1</li>
+            <li class="dropdown-item">Item 2</li>
+            <li class="dropdown-item">Item 3</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    :host {
+        --dropdown-color: blue;
+        --dropdown-radius: 5px;
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .dropdown {
+        position: relative;
+        border: 1px solid var(--dropdown-color);
+        border-radius: var(--dropdown-radius);
+        width: 200px;
+        text-align: end;
+
+        cursor: pointer;
+    }
+    
+    .dropdown-item-container {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        border: 1px solid var(--dropdown-color);
+        border-radius: var(--dropdown-radius);
+    }
+    
+    .dropdown-item-container.active {
+        display: block;
+    }
+    
+    .dropdown-items {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .dropdown-item {
+        width: 100%;
+        text-align: center;
+        margin: 5px;
+    }
+    
+    .dropdown-item:hover {
+        background-color: cadetblue;
+    }
+</style>

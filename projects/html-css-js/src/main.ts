@@ -1,7 +1,7 @@
-import { AppComponent } from './app/app.component'
-import { HelloWorldComponent } from './app/hello-world.components'
+import { AppComponent } from './app/components/app.component';
+import { DropdownComponent } from './app/components/dropdown/dropdown.component';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     customElements.define( 'app-root', AppComponent);
-    customElements.define( 'app-hello-world', HelloWorldComponent);
-})
+    customElements.define( 'app-dropdown', DropdownComponent);
+});

@@ -1,0 +1,63 @@
+.container {
+    margin: 10px;
+    border: 1px solid red;
+    width: 50%;
+    height: 200px;
+}
+
+.center-1 {
+    display: table;
+}
+
+.center-1 > span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.center-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* centrer le texte dans son container (s'il est affiché sur plusieurs lignes et que ces lignes ne font pas toutes la même largeur) */
+    text-align: center;
+}
+
+.center-3 {
+   position: relative;
+}
+
+.center-3 > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /*  largeur et hauteur = s'adapter au contenu */
+    width: fit-content;
+    height: fit-content;
+
+    /* centrer le texte dans son container (s'il est affiché sur plusieurs lignes et que ces lignes ne font pas toutes la même largeur) */
+    text-align: center;
+}
+
+.center-4 {
+    display: flex;
+}
+
+.center-4 > span {
+    margin: auto;
+
+    /* centrer le texte dans son container (s'il est affiché sur plusieurs lignes et que ces lignes ne font pas toutes la même largeur) */
+    text-align: center;
+}
+
+.center-5 {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    /* centrer le texte dans son container (s'il est affiché sur plusieurs lignes et que ces lignes ne font pas toutes la même largeur) */
+    text-align: center;
+}

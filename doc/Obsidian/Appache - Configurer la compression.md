@@ -1,4 +1,4 @@
-# Configurer Appache pour compresser les fichiers lorsqu'on les télécharge
+# Configurer Appache pour compresser les fichiers lorsqu'on les télécharge (dynamic gzip)
 Dans le fichier `httpd.conf`
 * Ajouter le module `deflate_module` : compression des fichiers
 * Ajouter le module `filter_module` : pour éviter l'erreur `Invalid command 'AddOutputFilterByType'` configuré dans le fichier `.htaccess`
@@ -65,7 +65,7 @@ SetOutputFilter DEFLATE
 Dans le dossier source
 * Ne pas ajouter les fichiers `*.gzip`
 
-# Configurer Appache pour télécharger les fichiers pré-compressés par WebPack
+# Configurer Appache pour télécharger les fichiers pré-compressés par WebPack (Build time gzip)
 [TODO] : checker car j'ai pas réussi à le faire fonctionnre correctement
 
 Dans le fichier `httpd.conf`

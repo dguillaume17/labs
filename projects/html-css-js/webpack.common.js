@@ -1,8 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: path.join(__dirname, 'src/main.ts'),
@@ -28,9 +25,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/index.html')
-        }),
-        new CompressionPlugin(), // Plugin used to compress build package
-        new BundleAnalyzerPlugin() // Plugin used to create an interactive treemap visualization of the contents of all your bundles.
+        })
     ],
     module: {
         rules: [
@@ -54,11 +49,5 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
-    },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin() // Plugin used to minify build package
-        ],
-      },
+    }
 };
