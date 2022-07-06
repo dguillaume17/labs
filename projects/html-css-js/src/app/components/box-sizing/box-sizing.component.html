@@ -1,0 +1,54 @@
+<h1><i>box-sizing</i></h1>
+
+<ul>
+    <li>width: 50px</li>
+    <li>padding-left: 5px</li>
+    <li>padding-right: 10px</li>
+    <li>border-width: 20px</li>
+    <li>margin: 5px</li>
+</ul>
+
+<h2><i>border-box</i></h2>
+
+<ul>
+    <li>Largeur totale = width = 100px</li>
+</ul>
+
+<div class="container">
+    <div class="rectangle border-box"></div>
+</div>
+
+<h2><i>content-box</i></h2>
+<ul>
+    <li><strong>Largeur totale</strong> = width + padding-left + padding-right + 2 * border-width = 135px</li>
+</ul>
+
+<div class="container">
+    <div class="rectangle content-box"></div>
+</div>
+
+<style>
+    .container {
+        display: block;
+        height: 100px;
+        width: 100px;
+        border: 1px solid blue;
+        padding: 10px;
+    }
+
+    .rectangle {
+        width: 100px;
+        height: 100px;
+        border: 10px solid red;
+        padding-left: 5px;
+        padding-right: 10px;
+    }
+
+    .border-box {
+        box-sizing: border-box;
+    }
+
+    .content-box {
+        box-sizing: content-box;
+    }
+</style>

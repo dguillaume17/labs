@@ -1,32 +1,46 @@
+import { BaseComponent } from '../base/base.component';
 import html from './dropdown.component.html';
 
-export class DropdownComponent extends HTMLElement {
+export class DropdownComponent extends BaseComponent {
 
-    // Private properties
+    // Inner properties
 
-    private _shadow: ShadowRoot | undefined;
-
-    // Lifecycle
-
-    connectedCallback() {
-        this._shadow = this.attachShadow({
-            mode: 'closed'
-        });
-
-        this.render();
-    }
+    private _$dropdown: Element;
+    private _$dropdownSelection: Element;
+    private _$dropdownContainer: Element;
+    private _$dropdownItems: NodeListOf<Element>;
 
     // Render
 
-    public render() {
-        this._shadow.innerHTML = html;
+    public render(shadow: ShadowRoot) {
+        shadow.innerHTML = html;
 
-        this._shadow.addEventListener('click', event => {
-            console.log(event);
+        this._$dropdown = shadow.querySelector('[dropdown]');
+        this._$dropdownSelection = shadow.querySelector('[dropdown-selection]');
+        this._$dropdownContainer = shadow.querySelector('[dropdown-item-container]');
+        this._$dropdownItems = shadow.querySelectorAll('[dropdown-item]');
 
-            const $el = this._shadow.querySelector('.dropdown-item-container');
-            $el.classList.toggle('active');
-            console.log($el);
+        this._$dropdown.addEventListener('click', (event: PointerEvent) => {
+            this.toggleDropdown();
         });
+
+        this._$dropdownItems.forEach($dropdownItem => {
+            $dropdownItem.addEventListener('click', (event: PointerEvent) => {
+                event.stopPropagation();
+
+                this.toggleDropdown();
+                this.setupSelection($dropdownItem.innerHTML);
+            });
+        });
+    }
+
+    // Inner work
+
+    private setupSelection(selection: string) {
+        this._$dropdownSelection.innerHTML = selection;
+    }
+
+    private toggleDropdown() {
+        this._$dropdownContainer.classList.toggle('active');
     }
 }
