@@ -6,7 +6,7 @@ export abstract class BaseComponent extends HTMLElement {
 
     // Lifecycle
 
-    connectedCallback() {
+    public connectedCallback() {
         this._shadow = this.attachShadow({
             mode: 'closed'
         });
