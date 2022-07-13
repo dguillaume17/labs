@@ -1,0 +1,15 @@
+:host {
+    --container-width: 100px;
+    --container-height: 100px;
+}
+
+.container {
+    border: 2px solid red;
+    width: var(--container-width);
+    height: var(--container-height);
+}
+
+.content {
+    border: 2px solid blue;
+    background-color: lightblue;
+}

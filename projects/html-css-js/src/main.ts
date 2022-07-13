@@ -1,7 +1,13 @@
 import { AppComponent } from './app/components/app.component';
-import { SelecterComponent } from './app/components/selecter/selecter.component';
+import { ComponentType } from './app/models/component-type.enum';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     customElements.define('app-root', AppComponent);
-    customElements.define('app-dropdown', SelecterComponent);
+
+    ComponentType.getAll().forEach(componentType => {
+        customElements.define(
+            componentType,
+            ComponentType.getComponent(componentType)
+        );
+    });
 });

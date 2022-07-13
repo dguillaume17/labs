@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "VS Code.md",
-            "mode": "source",
+            "file": "Code/CSS/height.md",
+            "mode": "preview",
             "source": true
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "VS Code.md",
+                "file": "Code/CSS/height.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,13 +88,15 @@
   },
   "active": "18bfd508592e7b8c",
   "lastOpenFiles": [
+    "Code/CSS/height.md",
     "VS Code.md",
+    "Installer WebPack.md",
+    "Code/TypeScript/Implémenter une interface.md",
+    "Installer un paquet avec npm dans une version spécifique.md",
+    "Code/CSS.md",
+    "Exécuter via NodeJS.md",
     "Appache - Configurer la compression.md",
     "Compiler avec TypeScript.md",
-    "Créer fichier package.json.md",
-    "Créer fichier tsconfig.json.md",
-    "Exécuter via NodeJS.md",
-    "Installer WebPack.md",
-    "Installer TypeScript.md"
+    "Créer fichier package.json.md"
   ]
 }

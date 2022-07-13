@@ -17,13 +17,13 @@ export class SelecterComponent extends BaseComponent {
 
     // Render
 
-    public render(shadow: ShadowRoot) {
-        shadow.innerHTML = `${html}<style>${css}</style>`;
+    public render() {
+        this.renderHtml(html, css);
 
-        this._$selecter = shadow.querySelector('[selecter]');
-        this._$selectionItem = shadow.querySelector('[selection-item]');
-        this._$dropdown = shadow.querySelector('[dropdown]');
-        this._$dropdownItems = shadow.querySelectorAll('[dropdown-item]');
+        this._$selecter = this.shadow.querySelector('[selecter]');
+        this._$selectionItem = this.shadow.querySelector('[selection-item]');
+        this._$dropdown = this.shadow.querySelector('[dropdown]');
+        this._$dropdownItems = this.shadow.querySelectorAll('[dropdown-item]');
 
         this._$selecter.addEventListener('click', (event: PointerEvent) => {
             this._$dropdown.classList.toggle(this.ACTIVE);
